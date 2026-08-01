@@ -23,8 +23,4 @@ jobs:
     MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
   run: mvn clean install
 
-      - name: Build Project
-        env:
-          JWT_SECRET: ${{ secrets.JWT_SECRET }}
-          JWT_EXPIRATION: ${{ secrets.JWT_EXPIRATION }}
-        run: mvn clean install
+     
