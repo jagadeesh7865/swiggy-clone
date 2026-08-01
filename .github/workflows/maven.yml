@@ -9,20 +9,21 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout Project
+        uses: actions/checkout@v4
 
-    - name: Checkout Project
-      uses: actions/checkout@v4
+      - name: Setup Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
 
-    - name: Setup Java 21
-      uses: actions/setup-java@v4
-      with:
-        distribution: temurin
-        java-version: '21'
-        cache: maven
-
-    - name: Build Project
-      run: mvn clean install
+      - name: Build Project
+        env:
+          JWT_SECRET: ${{ secrets.JWT_SECRET }}
+          JWT_EXPIRATION: ${{ secrets.JWT_EXPIRATION }}
+        run: mvn clean install
