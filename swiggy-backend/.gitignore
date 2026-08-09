@@ -14,4 +14,12 @@ bin/
 
 .DS_Store
 
+# Eclipse workspace
+.metadata/
+
+swiggy-backend/target/
+swiggy-backend/uploads/
+swiggy-frontend/node_modules/
+swiggy-frontend/dist/
+
 application-local.properties

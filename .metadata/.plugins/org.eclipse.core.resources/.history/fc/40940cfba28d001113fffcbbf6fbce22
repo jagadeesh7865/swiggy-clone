@@ -1,7 +1,0 @@
-package com.swiggy.swiggy_backend.repository;
-
-
-@DataJpaTest()
-public class MenuRepositoryTest {
-
-}
