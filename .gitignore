@@ -1,0 +1,17 @@
+target/
+bin/
+.settings/
+.project
+.classpath
+
+*.class
+*.log
+
+.idea/
+*.iml
+
+.vscode/
+
+.DS_Store
+
+application-local.properties
