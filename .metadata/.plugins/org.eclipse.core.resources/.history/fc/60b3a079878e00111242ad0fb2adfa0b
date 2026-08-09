@@ -1,0 +1,5 @@
+package com.swiggy.swiggy_backend;
+
+public class TestMailConfig {
+
+}

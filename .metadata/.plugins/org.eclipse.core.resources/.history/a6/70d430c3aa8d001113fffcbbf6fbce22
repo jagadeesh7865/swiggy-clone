@@ -1,0 +1,14 @@
+package com.swiggy.swiggy_backend.repository;
+
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+
+@DataJpaTest()
+public class MenuRepositoryTest {
+	
+	@Autowired
+	private MenuRepository menuRepository;
+	
+	@Autowired
+	private TestEntityManager entityManager;
+
+}

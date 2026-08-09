@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.swiggy.swiggy_backend.entity.User"/>
+    <fullyQualifiedTypeName name="org.apache.el.lang.FunctionMapperImpl.Function"/>
+    <fullyQualifiedTypeName name="org.hibernate.boot.jaxb.mapping.spi.JaxbAnyMapping.Key"/>
+    <fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.EnumType"/>
+    <fullyQualifiedTypeName name="com.swiggy.swiggy_backend.entity.Role"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Cacheable"/>
+    <fullyQualifiedTypeName name="com.swiggy.swiggy_backend.exception.ErrorResponse"/>
+    <fullyQualifiedTypeName name="io.swagger.v3.oas.models.media.MediaType"/>
+    <fullyQualifiedTypeName name="com.swiggy.swiggy_backend.dto.UserRegistrationRequest"/>
+    <fullyQualifiedTypeName name="java.util.Optional"/>
+    <fullyQualifiedTypeName name="com.swiggy.swiggy_backend.entity.MenuItem"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.Collections"/>
+</qualifiedTypeNameHistroy>

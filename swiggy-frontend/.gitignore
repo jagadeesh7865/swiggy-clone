@@ -1,0 +1,44 @@
+# =========================
+# Backend - Spring Boot
+# =========================
+
+swiggy-backend/target/
+swiggy-backend/.mvn/
+*.class
+
+# IDE
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.vscode/
+
+# =========================
+# Frontend - React / Vite
+# =========================
+
+swiggy-frontend/node_modules/
+swiggy-frontend/dist/
+swiggy-frontend/.vite/
+
+# =========================
+# Environment / Secrets
+# =========================
+
+.env
+.env.*
+!.env.example
+
+# =========================
+# Logs
+# =========================
+
+*.log
+
+# =========================
+# OS
+# =========================
+
+.DS_Store
+Thumbs.db

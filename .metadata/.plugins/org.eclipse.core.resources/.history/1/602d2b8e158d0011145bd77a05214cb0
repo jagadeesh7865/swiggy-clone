@@ -1,0 +1,13 @@
+package com.swiggy.swiggy_backend.service;
+
+public class Main {
+	
+public static void main(String [] args){
+	    
+	    int x = 1;
+	    int y = x++ + ++x + ++x;
+	    
+	    System.out.print(y);
+	}
+
+}

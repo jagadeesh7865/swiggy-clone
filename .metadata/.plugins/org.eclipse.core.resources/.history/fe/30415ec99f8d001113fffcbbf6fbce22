@@ -1,0 +1,101 @@
+package com.swiggy.swiggy_backend.controller;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.RequestBuilder;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.swiggy.swiggy_backend.dto.MenuRequest;
+import com.swiggy.swiggy_backend.dto.MenuResponse;
+import com.swiggy.swiggy_backend.repository.UserRepository;
+import com.swiggy.swiggy_backend.security.CustomUserDetailsService;
+import com.swiggy.swiggy_backend.security.JwtAuthenticationFilter;
+import com.swiggy.swiggy_backend.security.JwtService;
+import com.swiggy.swiggy_backend.service.MenuService;
+
+@WebMvcTest(MenuController.class)
+@AutoConfigureMockMvc(addFilters = false)
+class MenuControllerTest {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    @MockBean
+    private MenuService menuService;
+
+    @MockBean
+    private JwtAuthenticationFilter jwtAuthenticationFilter;
+
+    @MockBean
+    private JwtService jwtService;
+
+    @MockBean
+    private CustomUserDetailsService customUserDetailsService;
+
+    @MockBean
+    private UserRepository userRepository;
+    
+    @Test
+    void shouldAddMenuItem() throws Exception {
+
+        MenuRequest request = new MenuRequest();
+        request.setName("Pizza");
+        request.setPrice(250.0);
+
+        MenuResponse response = new MenuResponse();
+        response.setId(1L);
+        response.setName("Pizza");
+
+        when(menuService.addMenuItem(eq(1L), any(MenuRequest.class)))
+                .thenReturn(response);
+
+        mockMvc.perform(post("/api/restaurants/1/menu")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(request)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value(1))
+                .andExpect(jsonPath("$.name").value("Pizza"));
+
+        verify(menuService).addMenuItem(eq(1L), any(MenuRequest.class));
+    }
+    
+    @Test
+    void shouldGetMenuByRestaurant() throws Exception {
+
+        MenuResponse response = new MenuResponse();
+        response.setId(1L);
+        response.setName("Burger");
+
+        when(menuService.getMenuByRestaurant(1L))
+                .thenReturn(List.of(response));
+
+        mockMvc.perform(get("/api/restaurants/1/menu"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].name").value("Burger"));
+
+        verify(menuService).getMenuByRestaurant(1L);
+    }
+
+	
+
+}

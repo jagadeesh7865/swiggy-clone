@@ -1,0 +1,30 @@
+package com.swiggy.swiggy_backend.service;
+
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import com.swiggy.swiggy_backend.repository.UserRepository;
+import com.swiggy.swiggy_backend.service.impl.UserServiceImpl;
+
+@ExtendWith(MockitoExtension.class)
+public class UserServiceTest {
+	
+	@Mock
+	public UserRepository usesRepository;
+	
+	
+	@Mock
+	public PasswordEncoder passwordEncoder;
+	
+	@InjectMocks
+	public UserServiceImpl service;
+	
+	
+	
+	
+	
+
+}
